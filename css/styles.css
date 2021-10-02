@@ -1,0 +1,18 @@
+button {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+
+    background-color: black;
+
+    color: white;
+    font-size: 50px;
+}
+
+.X {
+    background-color: lime;
+}
+
+.O {
+    background-color: greenyellow;
+}
