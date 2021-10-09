@@ -1,18 +1,52 @@
-button {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
+* {
+    font-size: 32px;
+    font-weight: bold;
 
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
     background-color: black;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+
+    align-items: center;
+    justify-content: center;
 
     color: white;
-    font-size: 50px;
+    text-shadow: 0px 0px 5px white;
+}
+
+#winner {
+    margin-bottom: 20px;
+}
+
+button {
+    vertical-align: top;
+
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+
+    border: none;
+    border-radius:20px;
+
+    color: white;
+    background-color:gray;
 }
 
 .X {
-    background-color: lime;
+    background-color: green;
+    box-shadow: 0px 0px 10px 10px green;
 }
 
 .O {
-    background-color: greenyellow;
+    background-color: red;
+    box-shadow: 0px 0px 10px 10px red;
 }
