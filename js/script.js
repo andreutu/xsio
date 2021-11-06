@@ -70,13 +70,49 @@ var checkWinner = () => {
 }
 
 var botMove = () => {
-    var move = Math.floor(Math.random() * 9);
-    var botButton = $(buttons[move]);
+    var winningMove = -1;
+    var losingMove = -1;
 
-    while(botButton.html()) {
+    buttons.each(function (index, element) {
+        let button = $(element);
+
+        if (!button.html()) {
+            button.html(player);
+
+            let possibleWinner = checkWinner();
+
+            if (possibleWinner) {
+                winningMove = index;
+            } else {
+                let nextPlayer = player === "X" ? "O" : "X";
+                button.html(nextPlayer);
+
+                possileWinner = checkWinner();
+                if (possibleWinner) {
+                    losingMove = index;
+                }
+            }
+            button.html("");
+        }
+    })
+    var move;
+    var botButton;
+
+    if (winningMove != -1) {
+        move = winningMove;
+        botButton = $(buttons[move]);
+    } else if (losingMove != -1) {
+        move = losingMove;
+        botButton = $(buttons[move]);
+    } else {
         move = Math.floor(Math.random() * 9);
         botButton = $(buttons[move]);
-    }
+    
+        while(botButton.html()) {
+            move = Math.floor(Math.random() * 9);
+            botButton = $(buttons[move]);
+        }
+    } 
 
     if (makeMove(botButton)) {
         return;
